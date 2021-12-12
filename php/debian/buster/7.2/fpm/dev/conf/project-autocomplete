@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+_project() {
+
+  #  COMPREPLY=()
+  #  local cur
+  #  cur=$(_get_cword)
+  #  local completions=$(/var/www/app/scripts/project/bin/project shortlist)
+  #
+  #  local OLDIFS="$IFS"
+  #  local IFS=$'\n'
+  #  COMPREPLY=( $( compgen -W "$completions" -- "$cur" ) )
+  #  IFS="$OLDIFS"
+  #  if [[ ${#COMPREPLY[*]} -eq 1 ]]; then #Only one completion
+  #    COMPREPLY=( ${COMPREPLY[0]%% - *} ) #Remove ' - ' and everything after
+  #  fi
+  #  return 0
+
+  _script_commands=$(/var/www/app/scripts/project/bin/project shortlist)
+
+  local cur
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "${_script_commands}" -- ${cur}))
+
+  return 0
+}
+
+complete -o nospace -F _project project
+
+#complete -F _project project
