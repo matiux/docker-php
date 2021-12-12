@@ -1,4 +1,4 @@
-FROM matiux/php:8.0-fpm-bullseye-base
+FROM matiux/php:fpm-8.1-bullseye-base
 
 MAINTAINER Matteo Galacci <m.galacci@gmail.com>
 
@@ -41,7 +41,7 @@ RUN chown utente:utente /usr/local/etc/php/conf.d/
 COPY --chown=www-data:www-data conf/xdebug.ini $XDEBUG_CONF_FILE
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    && pecl install xdebug-3.1.1 \
+    && pecl install xdebug-3.1.2 \
     && docker-php-ext-enable xdebug
 ###> Fine configurazione Xdebug
 
