@@ -1,6 +1,6 @@
-name: Build and Publish PHP 8.1 dev
+name: Build PHP 8.1 dev
 
-on: [workflow_dispatch]
+on: [ workflow_dispatch ]
 
 jobs:
   # define job to build and publish docker image
@@ -25,11 +25,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build image and push to Docker Hub and GitHub Container Registry
+      - name: Build 8.1 dev image and push to Docker Hub Registry
         uses: docker/build-push-action@v2
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./php/debian/bullseye/8.1/dev
+          context: ./php/debian/bullseye/8.1/fpm/dev
           # Note: tags has to be all lower-case
           # matiux/php-fpm-8.1-bullseye-dev:latest
           tags: |

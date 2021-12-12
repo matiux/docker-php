@@ -1,0 +1,71 @@
+PHP Docker images
+=====
+
+![Build PHP 8.1 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-base.yml/badge.svg)
+![Build PHP 8.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-dev.yml/badge.svg)
+
+
+## Immagini PHP:
+* [PHP 8.1.* fpm - Debian Bullseye](php/debian/bullseye/8.1/fpm)
+
+[Hub pubblico](https://hub.docker.com/r/matiux/php/tags?page=1&ordering=last_updated)
+
+## Project autopilot
+
+A partire dalle immagini php 7.4* è stato introdotta la possibilità di utilizzare un bash script per pilotare il progetto.
+Questo script si deve chiamare `project` e va creato in `/var/www/app/scripts/project/bin`. Questo path è aggiunto al `$PATH`
+di sistema. È presente anche lo script per l'auto complete `/etc/bash_completion.d/project-autocomplete`. Questo script chiama
+il comando `project shortlist` per ottenere la lista dei comandi disponibili e permettere quindi l'auto complete. Un esempio di 
+script potrebbe essere il seguente:
+
+```shell
+#!/usr/bin/env bash
+
+CMD=$1
+shift 1
+
+install_dependencies() {
+  composer install --prefer-dist --no-progress
+}
+
+schema_drop() {
+  php bin/console \
+    doctrine:schema:drop \
+    --force \
+    --full-database \
+    --no-interaction \
+    --env="${APP_RUNTIME_ENV}"
+}
+
+migrate() {
+  php bin/console \
+    doctrine:migrations:migrate \
+    --no-interaction \
+    --env="${APP_RUNTIME_ENV}"
+}
+
+setup() {
+  install_dependencies
+  schema_drop
+  migrate
+}
+
+while :; do
+  case $CMD in
+  setup-test)
+    APP_RUNTIME_ENV='test' setup
+    break
+    ;;
+  setup-dev)
+    APP_RUNTIME_ENV='dev' setup
+    break
+    ;;
+  shortlist)
+    echo \
+      setup-test \
+      setup-dev
+    break
+    ;;
+  esac
+done
+```
