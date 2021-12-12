@@ -41,7 +41,7 @@ RUN chown utente:utente /usr/local/etc/php/conf.d/
 COPY --chown=www-data:www-data conf/xdebug.ini $XDEBUG_CONF_FILE
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    && pecl install xdebug-3.0.4 \
+    && pecl install xdebug-2.9.8 \
     && docker-php-ext-enable xdebug
 ###> Fine configurazione Xdebug
 
