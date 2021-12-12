@@ -1,4 +1,4 @@
-name: Build PHP 8.1 base
+name: Build PHP 8.0 base
 
 on: [ workflow_dispatch ]
 
@@ -25,15 +25,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build 8.1 base image and push to Docker Hub Registry
+      - name: Build 8.0 base image and push to Docker Hub Registry
         uses: docker/build-push-action@v2
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./php/debian/bullseye/8.1/fpm/base
+          context: ./php/debian/bullseye/8.0/fpm/base
           # Note: tags has to be all lower-case
-          # matiux/php-fpm-8.1-bullseye-base:latest
+          # matiux/php-fpm-8.0-bullseye-base:latest
           tags: |
-            matiux/php:fpm-8.1-bullseye-base
+            matiux/php:fpm-8.0-bullseye-base
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
