@@ -11,6 +11,8 @@ PHP Docker images
 ![Build PHP 7.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-73-bullseye-dev.yml/badge.svg)
 ![Build PHP 7.2 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-72-buster-base.yml/badge.svg)
 ![Build PHP 7.2 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-72-buster-dev.yml/badge.svg)
+![Build PHP 7.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-71-buster-base.yml/badge.svg)
+![Build PHP 7.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-71-buster-dev.yml/badge.svg)
 
 ## Immagini PHP:
 * [PHP 8.1.* fpm - Debian Bullseye](php/debian/bullseye/8.1/fpm)
@@ -18,12 +20,13 @@ PHP Docker images
 * [PHP 7.4.* fpm - Debian Bullseye](php/debian/bullseye/7.4/fpm)
 * [PHP 7.3.* fpm - Debian Bullseye](php/debian/bullseye/7.3/fpm)
 * [PHP 7.2.* fpm - Debian Buster](php/debian/buster/7.2/fpm)
+* [PHP 7.1.* fpm - Debian Buster](php/debian/buster/7.1/fpm)
 
 [Hub pubblico](https://hub.docker.com/r/matiux/php/tags?page=1&ordering=last_updated)
 
 ## Project autopilot
 
-A partire dalle immagini php 7.2 è stato introdotta la possibilità di utilizzare un bash script per pilotare il progetto.
+A partire dalle immagini php 7.1 è stato introdotta la possibilità di utilizzare un bash script per pilotare il progetto.
 Questo script si deve chiamare `project` e va creato in `/var/www/app/scripts/project/bin`. Questo path è aggiunto al `$PATH`
 di sistema. È presente anche lo script per l'auto complete `/etc/bash_completion.d/project-autocomplete`. Questo script chiama
 il comando `project shortlist` per ottenere la lista dei comandi disponibili e permettere quindi l'auto complete. Un esempio di 
