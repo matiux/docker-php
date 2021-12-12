@@ -7,12 +7,14 @@ PHP Docker images
 ![Build PHP 8.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-80-bullseye-dev.yml/badge.svg)
 ![Build PHP 7.4 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-74-bullseye-base.yml/badge.svg)
 ![Build PHP 7.4 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-74-bullseye-dev.yml/badge.svg)
-
+![Build PHP 7.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-73-bullseye-base.yml/badge.svg)
+![Build PHP 7.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-73-bullseye-dev.yml/badge.svg)
 
 ## Immagini PHP:
 * [PHP 8.1.* fpm - Debian Bullseye](php/debian/bullseye/8.1/fpm)
 * [PHP 8.0.* fpm - Debian Bullseye](php/debian/bullseye/8.0/fpm)
 * [PHP 7.4.* fpm - Debian Bullseye](php/debian/bullseye/7.4/fpm)
+* [PHP 7.3.* fpm - Debian Bullseye](php/debian/bullseye/7.3/fpm)
 
 [Hub pubblico](https://hub.docker.com/r/matiux/php/tags?page=1&ordering=last_updated)
 
