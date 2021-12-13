@@ -3,20 +3,22 @@ PHP Docker images
 
 ![Build PHP 8.1 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-base.yml/badge.svg)
 ![Build PHP 8.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-dev.yml/badge.svg)
-![Build PHP 8.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-80-bullseye-base.yml/badge.svg)
+![Build PHP 8.0 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-80-bullseye-base.yml/badge.svg)
 ![Build PHP 8.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-80-bullseye-dev.yml/badge.svg)
-![Build PHP 7.4 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-74-bullseye-base.yml/badge.svg)
+![Build PHP 7.4 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-74-bullseye-base.yml/badge.svg)
 ![Build PHP 7.4 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-74-bullseye-dev.yml/badge.svg)
-![Build PHP 7.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-73-bullseye-base.yml/badge.svg)
+![Build PHP 7.3 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-73-bullseye-base.yml/badge.svg)
 ![Build PHP 7.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-73-bullseye-dev.yml/badge.svg)
-![Build PHP 7.2 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-72-buster-base.yml/badge.svg)
+![Build PHP 7.2 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-72-buster-base.yml/badge.svg)
 ![Build PHP 7.2 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-72-buster-dev.yml/badge.svg)
-![Build PHP 7.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-71-buster-base.yml/badge.svg)
+![Build PHP 7.1 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-71-buster-base.yml/badge.svg)
 ![Build PHP 7.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-71-buster-dev.yml/badge.svg)
-![Build PHP 7.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-70-stretch-base.yml/badge.svg)
+![Build PHP 7.0 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-70-stretch-base.yml/badge.svg)
 ![Build PHP 7.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-70-stretch-dev.yml/badge.svg)
-![Build PHP 5.6 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-56-stretch-base.yml/badge.svg)
+![Build PHP 5.6 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-56-stretch-base.yml/badge.svg)
 ![Build PHP 5.6 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-56-stretch-dev.yml/badge.svg)
+![Build PHP 5.3 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-53-jessie-base.yml/badge.svg)
+![Build PHP 5.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-53-jessie-dev.yml/badge.svg)
 
 ## Immagini PHP:
 * [PHP 8.1.* fpm - Debian Bullseye](php/debian/bullseye/8.1/fpm)
@@ -27,6 +29,7 @@ PHP Docker images
 * [PHP 7.1.* fpm - Debian Buster](php/debian/buster/7.1/fpm)
 * [PHP 7.0.* fpm - Debian Stretch](php/debian/stretch/7.0/fpm)
 * [PHP 5.6.* fpm - Debian Stretch](php/debian/stretch/5.6/fpm)
+* [PHP 5.3.29 apache - Debian Jessie](php/debian/jessie/5.3.29/apache)
 
 [Hub pubblico](https://hub.docker.com/r/matiux/php/tags?page=1&ordering=last_updated)
 
