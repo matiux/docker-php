@@ -13,8 +13,10 @@ PHP Docker images
 ![Build PHP 7.2 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-72-buster-dev.yml/badge.svg)
 ![Build PHP 7.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-71-buster-base.yml/badge.svg)
 ![Build PHP 7.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-71-buster-dev.yml/badge.svg)
-![Build PHP 7.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-70-buster-base.yml/badge.svg)
-![Build PHP 7.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-70-buster-dev.yml/badge.svg)
+![Build PHP 7.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-70-stretch-base.yml/badge.svg)
+![Build PHP 7.0 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-70-stretch-dev.yml/badge.svg)
+![Build PHP 5.6 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-56-stretch-base.yml/badge.svg)
+![Build PHP 5.6 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-56-stretch-dev.yml/badge.svg)
 
 ## Immagini PHP:
 * [PHP 8.1.* fpm - Debian Bullseye](php/debian/bullseye/8.1/fpm)
@@ -23,7 +25,8 @@ PHP Docker images
 * [PHP 7.3.* fpm - Debian Bullseye](php/debian/bullseye/7.3/fpm)
 * [PHP 7.2.* fpm - Debian Buster](php/debian/buster/7.2/fpm)
 * [PHP 7.1.* fpm - Debian Buster](php/debian/buster/7.1/fpm)
-* [PHP 7.0.* fpm - Debian Buster](php/debian/stretch/7.0/fpm)
+* [PHP 7.0.* fpm - Debian Stretch](php/debian/stretch/7.0/fpm)
+* [PHP 5.6.* fpm - Debian Stretch](php/debian/stretch/5.6/fpm)
 
 [Hub pubblico](https://hub.docker.com/r/matiux/php/tags?page=1&ordering=last_updated)
 

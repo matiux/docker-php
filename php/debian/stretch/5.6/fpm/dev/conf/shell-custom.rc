@@ -1,0 +1,11 @@
+#General Alias
+alias app="cd /var/www/app"
+alias ll="ls -alhF"
+
+#Xdebug Alias
+alias xon="sed -i 's/^;zend_extension/zend_extension/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
+alias xoff="sed -i 's/^zend_extension/;zend_extension/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
+
+#project pilot config
+export PATH=$PATH:/var/www/app/scripts/project/bin
+source /etc/bash_completion.d/project-autocomplete
