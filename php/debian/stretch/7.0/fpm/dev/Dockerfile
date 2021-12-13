@@ -1,4 +1,4 @@
-FROM matiux/php:fpm-7.0-jessie-base
+FROM matiux/php:fpm-7.0-stretch-base
 
 MAINTAINER Matteo Galacci <m.galacci@gmail.com>
 

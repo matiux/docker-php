@@ -23,7 +23,7 @@ PHP Docker images
 * [PHP 7.3.* fpm - Debian Bullseye](php/debian/bullseye/7.3/fpm)
 * [PHP 7.2.* fpm - Debian Buster](php/debian/buster/7.2/fpm)
 * [PHP 7.1.* fpm - Debian Buster](php/debian/buster/7.1/fpm)
-* [PHP 7.0.* fpm - Debian Buster](php/debian/jessie/7.0/fpm)
+* [PHP 7.0.* fpm - Debian Buster](php/debian/stretch/7.0/fpm)
 
 [Hub pubblico](https://hub.docker.com/r/matiux/php/tags?page=1&ordering=last_updated)
 

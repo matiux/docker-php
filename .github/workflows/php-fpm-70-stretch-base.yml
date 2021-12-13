@@ -1,4 +1,4 @@
-name: Build PHP 7.0 dev
+name: Build PHP 7.0 base
 
 on: [ workflow_dispatch ]
 
@@ -25,15 +25,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build 7.0 dev image and push to Docker Hub Registry
+      - name: Build 7.0 base image and push to Docker Hub Registry
         uses: docker/build-push-action@v2
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./php/debian/jessie/7.0/fpm/dev
+          context: ./php/debian/stretch/7.0/fpm/base
           # Note: tags has to be all lower-case
-          # matiux/php-fpm-7.0-jessie-dev:latest
+          # matiux/php-fpm-7.0-stretch-base:latest
           tags: |
-            matiux/php:fpm-7.0-jessie-dev
+            matiux/php:fpm-7.0-stretch-base
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 

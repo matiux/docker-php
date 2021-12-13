@@ -1,4 +1,4 @@
-FROM php:7.0-fpm-jessie
+FROM php:7.0-fpm-stretch
 
 MAINTAINER Matteo Galacci <m.galacci@gmail.com>
 
