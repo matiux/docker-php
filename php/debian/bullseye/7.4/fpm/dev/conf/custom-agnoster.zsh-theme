@@ -140,6 +140,38 @@ prompt_git() {
   fi
 }
 
+prompt_git_faster() {
+  (( $+commands[git] )) || return
+  if [[ "$(git config --get oh-my-zsh.hide-status 2>/dev/null)" = 1 ]]; then
+    return
+  fi
+  local PL_BRANCH_CHAR
+  () {
+    local LC_ALL="" LC_CTYPE="en_US.UTF-8"
+    PL_BRANCH_CHAR=$'\ue0a0'         # 
+  }
+  local ref dirty mode repo_path
+
+   if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
+    repo_path=$(git rev-parse --git-dir 2>/dev/null)
+
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
+    prompt_segment white black
+
+    if [[ -e "${repo_path}/BISECT_LOG" ]]; then
+      mode=" <B>"
+    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
+      mode=" >M<"
+    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
+      mode=" >R>"
+    fi
+
+    setopt promptsubst
+
+    echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR } ${mode}"
+  fi
+}
+
 prompt_bzr() {
   (( $+commands[bzr] )) || return
 
@@ -251,22 +283,27 @@ prompt_aws_vault() {
 
 # Context: user@hostname (who am I and where am I)
 prompt_indocker() {
-
   prompt_segment blue $CURRENT_FG "Docker"
-
 }
 
-## Main prompt
+if [[ -n $(getent hosts host.docker.internal | awk '{ print $1 }') ]]; then
+  HOST_OS="mac/windows"
+else
+  HOST_OS="linux"
+fi
+
+# Main prompt
 build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_virtualenv
   prompt_aws
   prompt_indocker
-  #prompt_aws_vault
+  prompt_aws_vault
   prompt_context
   #prompt_dir
-  prompt_git
+  #prompt_git
+  [[ $HOST_OS = "linux" ]] && prompt_git || prompt_git_faster
   prompt_bzr
   prompt_hg
   prompt_end

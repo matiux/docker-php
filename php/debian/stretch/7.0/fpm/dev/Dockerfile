@@ -4,7 +4,9 @@ MAINTAINER Matteo Galacci <m.galacci@gmail.com>
 
 USER root
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    awscli \
     curl \
     git \
     iproute2 \
@@ -38,20 +40,22 @@ ENV PHP_IDE_CONFIG=serverName=application
 RUN chown utente:utente /usr/local/etc/php/conf.d/
 COPY --chown=www-data:www-data conf/xdebug.ini $XDEBUG_CONF_FILE
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get install -y --no-install-recommends \
     && pecl install xdebug-2.7.2 \
     && docker-php-ext-enable xdebug
 ###> Fine configurazione Xdebug
 
-###> Pulizia
-RUN apt-get remove --purge -y software-properties-common \
-    && apt-get autoremove -y \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-###> Fine pulizia
+###> Zsh
+RUN apt-get install -y --no-install-recommends \
+    locales
+
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 USER utente
 
-###> Zsh
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 COPY --chown=utente:utente conf/zshrc /home/utente/.zshrc
@@ -61,18 +65,35 @@ RUN sed -i "s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"custom-agnoster\"/" ~/.zshr
     && echo "\nexport DEFAULT_USER=utente" >> ~/.zshrc
 ###> Fine zsh
 
-###> Custom shell
-COPY conf/project-autocomplete /etc/bash_completion.d
+###> Configurazione aws-vault e plugin zsh dentro al container
+RUN sudo curl -L -o /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/download/v6.5.0/aws-vault-linux-amd64
+RUN sudo chmod 755 /usr/local/bin/aws-vault
 
-COPY conf/shell-custom.rc /tmp/shell-custom.rc
-RUN cat /tmp/shell-custom.rc >> /home/utente/.zshrc \
-    && cat /tmp/shell-custom.rc >> /home/utente/.bashrc
-###> Fine custom shell
+RUN git clone https://github.com/blimmer/zsh-aws-vault.git ~/.oh-my-zsh/custom/plugins/zsh-aws-vault \
+    && sed -i.bak 's/^plugins=(\(.*\)/plugins=(zsh-aws-vault \1/' ~/.zshrc
+###> Fine configurazione aws-vault e plugin zsh dentro al container
 
 ###> Configurazione Zsh Autosuggestions
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
     && sed -i.bak 's/^plugins=(\(.*\)/plugins=(zsh-autosuggestions \1/' ~/.zshrc \
-    && echo "\nexport ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=#0cb074\"" >> ~/.zshrc
+    && echo "export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=#0cb074\"" >> ~/.zshrc
 ###> Fine configurazione Zsh Autosuggestions
+
+###> Shell
+COPY conf/project-autocomplete /etc/bash_completion.d
+
+COPY --chown=utente:utente conf/shell-custom.rc /tmp/shell-custom.rc
+RUN echo "" >> /tmp/shell-custom.rc \
+    && cat /tmp/shell-custom.rc >> /home/utente/.zshrc  \
+    && cat /tmp/shell-custom.rc >> /home/utente/.bashrc
+###> Fine Shell
+
+###> Pulizia
+USER root
+
+RUN apt-get remove --purge -y software-properties-common \
+    && apt-get autoremove -y \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+###> Fine pulizia
 
 USER www-data
