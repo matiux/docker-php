@@ -4,21 +4,22 @@ MAINTAINER Matteo Galacci <m.galacci@gmail.com>
 
 #ARG PHP_VERSION=$(php -v | grep ^PHP | cut -d' ' -f2)
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      ca-certificates \
-      curl \
-      git \
-      less \
-      libicu-dev \
-      libmemcached-dev \
-      libmemcached11 \
-      libncurses5-dev \
-      libxml2 \
-      libzip-dev \
-      unzip \
-      vim \
-      zip \
-      zlib1g-dev \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    git \
+    less \
+    libicu-dev \
+    libmemcached-dev \
+    libmemcached11 \
+    libncurses5-dev \
+    libxml2 \
+    libzip-dev \
+    unzip \
+    vim \
+    zip \
+    zlib1g-dev \
     && pecl install -o \
         memcached-3.1.5 \
     && docker-php-ext-enable \

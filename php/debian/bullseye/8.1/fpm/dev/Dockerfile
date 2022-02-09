@@ -4,7 +4,8 @@ MAINTAINER Matteo Galacci <m.galacci@gmail.com>
 
 USER root
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
     curl \
     default-mysql-client \
     git \
@@ -40,8 +41,8 @@ ENV PHP_IDE_CONFIG=serverName=application
 RUN chown utente:utente /usr/local/etc/php/conf.d/
 COPY --chown=www-data:www-data conf/xdebug.ini $XDEBUG_CONF_FILE
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    && pecl install xdebug-3.1.2 \
+RUN apt-get install -y --no-install-recommends \
+    && pecl install xdebug-3.1.3 \
     && docker-php-ext-enable xdebug
 ###> Fine configurazione Xdebug
 
@@ -78,11 +79,3 @@ RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.
 ###> Fine configurazione Zsh Autosuggestions
 
 USER www-data
-
-## per sviluppo da linux
-#RUN cat /var/www/.zshrc|sed -e 's/\/var\/www\/.oh-my-zsh/\/home\/utente\/.oh-my-zsh/g' > /home/utente/.zshrc \
-#    && cp /home/utente/.zshrc /home/utente/.bashrc \
-#    && cp -R /var/www/.oh-my-zsh /home/utente/ \
-#    && chown -R utente:www-data /home/utente /etc/php/${PHP_VERSION}/mods-available \
-#    && echo "Set disable_coredump false" >> /etc/sudo.conf \
-#    && chmod 644 /etc/sudoers.d/DEV

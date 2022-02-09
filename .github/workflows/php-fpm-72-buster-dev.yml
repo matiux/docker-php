@@ -34,8 +34,8 @@ jobs:
           # matiux/php-fpm-7.2-buster-dev:latest
           tags: |
             matiux/php:fpm-7.2-buster-dev
-          # build on feature branches, push only on main branch
-          push: ${{ github.ref == 'refs/heads/main' }}
+          # build on feature branches, push only on master branch
+          push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
