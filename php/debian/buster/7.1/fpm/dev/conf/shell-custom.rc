@@ -7,5 +7,5 @@ alias xon="sed -i 's/^;zend_extension/zend_extension/g' $XDEBUG_CONF_FILE && sud
 alias xoff="sed -i 's/^zend_extension/;zend_extension/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
 
 #project pilot config
-export PATH=$PATH:/var/www/app/scripts/project/bin
+export PATH=$PATH:/var/www/app/scripts/project/bin:/var/www/app/tools/bin
 source /etc/bash_completion.d/project-autocomplete

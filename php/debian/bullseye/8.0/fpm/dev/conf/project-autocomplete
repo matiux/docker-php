@@ -16,7 +16,13 @@ _project() {
   #  fi
   #  return 0
 
-  _script_commands=$(/var/www/app/scripts/project/bin/project shortlist)
+  PROJECT_PATH="/var/www/app/tools/bin/project"
+
+  if [ ! -f "$PROJECT_PATH" ]; then
+      PROJECT_PATH="/var/www/app/scripts/project/bin/project"
+  fi
+
+  _script_commands=$($PROJECT_PATH shortlist)
 
   local cur
   COMPREPLY=()
