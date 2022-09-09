@@ -16,10 +16,10 @@ _project() {
   #  fi
   #  return 0
 
-  PROJECT_PATH="/var/www/app/tools/bin/project"
+  PROJECT_PATH="/var/www/app/tools/bin/project/project"
 
   if [ ! -f "$PROJECT_PATH" ]; then
-      PROJECT_PATH="/var/www/app/scripts/project/bin/project"
+      PROJECT_PATH="/var/www/app/tools/bin/project"
   fi
 
   _script_commands=$($PROJECT_PATH shortlist)
