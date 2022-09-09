@@ -14,5 +14,5 @@ alias xmode.develop="sed -i 's/^xdebug.mode=.*/xdebug.mode=develop/g' $XDEBUG_CO
 alias xmode.coverage="sed -i 's/^xdebug.mode=.*/xdebug.mode=coverage/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
 
 #project pilot config
-export PATH=$PATH:/var/www/app/scripts/project/bin:/var/www/app/tools/bin
+export PATH=$PATH:/var/www/app/tools/bin:/var/www/app/tools/bin/project
 source /etc/bash_completion.d/project-autocomplete
