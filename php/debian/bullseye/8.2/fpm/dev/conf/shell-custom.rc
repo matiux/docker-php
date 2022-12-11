@@ -1,0 +1,18 @@
+#General Alias
+alias app="cd /var/www/app"
+alias ll="ls -alhF"
+
+#Xdebug Alias
+#alias xmode.coverage="export XDEBUG_MODE=coverage"
+#alias xmode.debug="export XDEBUG_MODE=debug"
+#alias xmode.off="export XDEBUG_MODE=off"
+#alias xmode.develop="export XDEBUG_MODE=develop"
+
+alias xmode.debug="sed -i 's/^xdebug.mode=.*/xdebug.mode=debug/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
+alias xmode.off="sed -i 's/^xdebug.mode=.*/xdebug.mode=off/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
+alias xmode.develop="sed -i 's/^xdebug.mode=.*/xdebug.mode=develop/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
+alias xmode.coverage="sed -i 's/^xdebug.mode=.*/xdebug.mode=coverage/g' $XDEBUG_CONF_FILE && sudo kill -USR2 1"
+
+#project pilot config
+export PATH=$PATH:/var/www/app/tools/bin:/var/www/app/tools/bin/project
+source /etc/bash_completion.d/project-autocomplete

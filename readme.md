@@ -1,6 +1,8 @@
 PHP Docker images
 =====
 
+![Build PHP 8.2 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-82-bullseye-base.yml/badge.svg)
+![Build PHP 8.2 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-82-bullseye-dev.yml/badge.svg)
 ![Build PHP 8.1 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-base.yml/badge.svg)
 ![Build PHP 8.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-dev.yml/badge.svg)
 ![Build PHP 8.0 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-80-bullseye-base.yml/badge.svg)
