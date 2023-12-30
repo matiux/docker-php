@@ -1,8 +1,10 @@
 PHP Docker images
 =====
 
+![Build PHP 8.3 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-83-bookworm-base.yml/badge.svg)
+![Build PHP 8.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-83-bookworm-dev.yml/badge.svg)
 ![Build PHP 8.2 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-82-bullseye-base.yml/badge.svg)
-![Build PHP 8.2 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-82-bullseye-dev.yml/badge.svg)
+![Build PHP 8.2 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-82-bullseye-dev.yml/badge.svg)
 ![Build PHP 8.1 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-base.yml/badge.svg)
 ![Build PHP 8.1 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-81-bullseye-dev.yml/badge.svg)
 ![Build PHP 8.0 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-80-bullseye-base.yml/badge.svg)
@@ -23,6 +25,8 @@ PHP Docker images
 ![Build PHP 5.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-53-jessie-dev.yml/badge.svg)
 
 ## Immagini PHP:
+* [PHP 8.3.* fpm - Debian Bookworm](php/debian/bullseye/8.3/fpm)
+* [PHP 8.2.* fpm - Debian Bullseye](php/debian/bullseye/8.2/fpm)
 * [PHP 8.1.* fpm - Debian Bullseye](php/debian/bullseye/8.1/fpm)
 * [PHP 8.0.* fpm - Debian Bullseye](php/debian/bullseye/8.0/fpm)
 * [PHP 7.4.* fpm - Debian Bullseye](php/debian/bullseye/7.4/fpm)
