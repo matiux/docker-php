@@ -1,6 +1,7 @@
 PHP Docker images
 =====
-
+![Build PHP 8.4 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-84-bookworm-base.yml/badge.svg)
+![Build PHP 8.4 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-84-bookworm-dev.yml/badge.svg)
 ![Build PHP 8.3 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-83-bookworm-base.yml/badge.svg)
 ![Build PHP 8.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-83-bookworm-dev.yml/badge.svg)
 ![Build PHP 8.2 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-82-bullseye-base.yml/badge.svg)
@@ -25,7 +26,8 @@ PHP Docker images
 ![Build PHP 5.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-53-jessie-dev.yml/badge.svg)
 
 ## Immagini PHP:
-* [PHP 8.3.* fpm - Debian Bookworm](php/debian/bullseye/8.3/fpm)
+* [PHP 8.4.* fpm - Debian Bookworm](php/debian/bookworm/8.4/fpm)
+* [PHP 8.3.* fpm - Debian Bookworm](php/debian/bookworm/8.3/fpm)
 * [PHP 8.2.* fpm - Debian Bullseye](php/debian/bullseye/8.2/fpm)
 * [PHP 8.1.* fpm - Debian Bullseye](php/debian/bullseye/8.1/fpm)
 * [PHP 8.0.* fpm - Debian Bullseye](php/debian/bullseye/8.0/fpm)
@@ -93,7 +95,7 @@ docker tag b7bb3ad94649 matiux/php:7.3.5-fpm-alpine3.9-base
 * Push immagine: `docker push matiux/php:8.0.1-fpm-alpine3.13-base`
 * Pull immagine: `docker pull matiux/php:8.0.1-fpm-alpine3.13-base`
 
-## Gestione containers con docker-compose:
+## Gestione containers con docker-compose (Deprecato):
 
 Il file [dc.sh](./scripts/dc.sh) è uno script che fa da wrapper a docker-compose semplificando l'utilizzo di alcuni comandi.
 
