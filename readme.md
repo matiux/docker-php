@@ -1,5 +1,7 @@
 PHP Docker images
 =====
+![Build PHP 8.5 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-85-trixie-base.yml/badge.svg)
+![Build PHP 8.5 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-85-trixie-dev.yml/badge.svg)
 ![Build PHP 8.4 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-84-bookworm-base.yml/badge.svg)
 ![Build PHP 8.4 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-84-bookworm-dev.yml/badge.svg)
 ![Build PHP 8.3 base](https://github.com/matiux/docker-php/actions/workflows/php-fpm-83-bookworm-base.yml/badge.svg)
@@ -26,6 +28,7 @@ PHP Docker images
 ![Build PHP 5.3 dev](https://github.com/matiux/docker-php/actions/workflows/php-fpm-53-jessie-dev.yml/badge.svg)
 
 ## Immagini PHP:
+* [PHP 8.5.* fpm - Debian Trixie](php/debian/trixie/8.5/fpm)
 * [PHP 8.4.* fpm - Debian Bookworm](php/debian/bookworm/8.4/fpm)
 * [PHP 8.3.* fpm - Debian Bookworm](php/debian/bookworm/8.3/fpm)
 * [PHP 8.2.* fpm - Debian Bullseye](php/debian/bullseye/8.2/fpm)
