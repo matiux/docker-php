@@ -62,29 +62,9 @@ ENV PHP_IDE_CONFIG=serverName=application
 
 COPY --chown=www-data:www-data conf/xdebug.ini $XDEBUG_CONF_FILE
 
-# Provvisorio perchè non ci sono ancora versioni di xdebug per PHP 8.5
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        autoconf \
-        build-essential \
-        git \
-        pkg-config \
-        $PHPIZE_DEPS \
-    && git clone https://github.com/xdebug/xdebug.git /tmp/xdebug \
-    && cd /tmp/xdebug \
-    && phpize \
-    && ./configure --enable-xdebug \
-    && make -j$(nproc) \
-    && make install \
-    && docker-php-ext-enable xdebug \
-    && rm -rf /tmp/xdebug \
-    && apt-get purge -y --auto-remove autoconf build-essential pkg-config
-
-
-# Non ci sono ancora versioni di xdebug per PHP 8.5
-#RUN pecl install xdebug \
-# && docker-php-ext-enable xdebug
-
+RUN apt-get install -y --no-install-recommends \
+    && pecl install xdebug-3.5.0 \
+    && docker-php-ext-enable xdebug
 
 
 #
@@ -117,16 +97,22 @@ RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/cust
  && sed -i.bak 's/^plugins=(\(.*\)/plugins=(zsh-autosuggestions \1/' ~/.zshrc \
  && echo "export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=#0cb074\"" >> ~/.zshrc
 
+#
+# ---------------------------------------------------------
+# 7. Autocomplete
+# ---------------------------------------------------------
+#
+COPY conf/project-autocomplete /etc/bash_completion.d
 
 #
 # ---------------------------------------------------------
-# 7. Shell custom
+# 8. Shell custom
 # ---------------------------------------------------------
 #
 COPY --chown=utente:utente conf/shell-custom.rc /tmp/shell-custom.rc
-RUN cat /tmp/shell-custom.rc >> ~/.zshrc \
- && cat /tmp/shell-custom.rc >> ~/.bashrc
-
+RUN echo "" >> /tmp/shell-custom.rc \
+    && cat /tmp/shell-custom.rc >> /home/utente/.zshrc  \
+    && cat /tmp/shell-custom.rc >> /home/utente/.bashrc
 
 #
 # ---------------------------------------------------------
